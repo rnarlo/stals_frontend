@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:stals_frontend/screens/signup.dart';
 import '../UI_parameters.dart' as UIParameter;
 import '../classes.dart';
 
@@ -37,7 +38,10 @@ class _AccomCardState extends State<AccomCard> {
       ),
       // InkWell so card has onTap property
       child: InkWell(
-        onTap: () {/* OPEN THE ACCOM PAGE HERE */},
+        onTap: () {
+          // For now, redirect to sign up page.
+          Navigator.pushNamed(context, '/signup');
+        },
         child: Row(
           children: [
             // 2 Sized boxes to split the card in half

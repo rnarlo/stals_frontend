@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:stals_frontend/screens/signin.dart';
 import 'package:stals_frontend/screens/signup.dart';
 import 'package:stals_frontend/screens/homepage.dart';
+import 'package:stals_frontend/screens/homepage_signed.dart';
+import 'package:stals_frontend/screens/accomm.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +21,9 @@ class MyApp extends StatelessWidget {
         '/': (context) => const MyHomePage(title: 'CMSC 128'),
         '/signin': (context) => const SignInPage(),
         '/signup': (context) => const SignUpPage(),
-        '/homepage': (context) => const UnregisteredHomepage()
+        '/homepage': (context) => const UnregisteredHomepage(),
+        '/signed_homepage': (context) => const RegisteredHomepage(),
+        '/accomm': (context) => const AccommPage()
       },
     );
   }
@@ -57,6 +61,20 @@ class _MyHomePageState extends State<MyHomePage> {
           trailing: const Icon(Icons.note_sharp),
           onTap: () {
             Navigator.pushNamed(context, '/homepage');
+          },
+        ),
+        ListTile(
+          title: const Text('Registered Homepage'),
+          trailing: const Icon(Icons.home),
+          onTap: () {
+            Navigator.pushNamed(context, '/signed_homepage');
+          },
+        ),
+        ListTile(
+          title: const Text('Accommodation'),
+          trailing: const Icon(Icons.construction),
+          onTap: () {
+            Navigator.pushNamed(context, '/accomm');
           },
         ),
         ListTile(
