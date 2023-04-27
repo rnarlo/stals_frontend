@@ -21,8 +21,13 @@ class _UnregisteredHomepageState extends State<UnregisteredHomepage> {
     DUMMY OBJECT
     <Object will come from database fetch later>
     */
-    var accom = AccomCardDetails("jk23fvgw23", "Centrro Residences",
-        "Description of Centrro Residences", "assets/images/room_stock.jpg", 3);
+    var accom = AccomCardDetails(
+        "jk23fvgw23",
+        "Centrro Residences",
+        "Description of Centrro Residences",
+        "assets/images/room_stock.jpg",
+        3,
+        false);
 
     return Scaffold(
         key: scaffoldKey,
@@ -82,21 +87,19 @@ class _UnregisteredHomepageState extends State<UnregisteredHomepage> {
                   decoration: BoxDecoration(
                     color: Color(0xff0B7A75),
                   ),
-                  child: Text('PROFILE'),
+                  child: Text(''),
                 ),
               ),
               ListTile(
-                title: const Text('Item 1'),
+                title: const Text('Sign In'),
                 onTap: () {
-                  // Update the state of the app.
-                  // ...
+                  Navigator.pushNamed(context, '/signin');
                 },
               ),
               ListTile(
-                title: const Text('Item 2'),
+                title: const Text('Sign Up'),
                 onTap: () {
-                  // Update the state of the app.
-                  // ...
+                  Navigator.pushNamed(context, '/signup');
                 },
               ),
             ],
@@ -149,9 +152,7 @@ class _UnregisteredHomepageState extends State<UnregisteredHomepage> {
                 children: [
                   // 1 accomm card for demo
                   // to create a component later that will build all the AccomCard of all fetched accommodation from database
-                  AccomCard(
-                    details: accom,
-                  ),
+                  AccomCard(details: accom),
                 ],
               ),
             ),

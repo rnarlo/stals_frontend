@@ -21,8 +21,15 @@ class _RegisteredHomepageState extends State<RegisteredHomepage> {
     DUMMY OBJECT
     <Object will come from database fetch later>
     */
-    var accom = AccomCardDetails("jk23fvgw23", "Centrro Residences",
-        "Description of Centrro Residences", "assets/images/room_stock.jpg", 3);
+    var accom = AccomCardDetails("jk23fvgw23", "Centtro Residences",
+        "Example Description", "assets/images/room_stock.jpg", 3, true);
+    var accom2 = AccomCardDetails(
+        'test1234',
+        'Casa Del Mar',
+        'Casa Del Mar is located at Sapphire street.',
+        "assets/images/room_stock.jpg",
+        5,
+        true);
 
     return Scaffold(
         key: scaffoldKey,
@@ -152,6 +159,12 @@ class _RegisteredHomepageState extends State<RegisteredHomepage> {
                   AccomCard(
                     details: accom,
                   ),
+                  const Divider(
+                    height: 20,
+                    thickness: 1.25,
+                    color: Color.fromRGBO(0, 0, 0, 0.25),
+                  ),
+                  AccomCard(details: accom2),
                 ],
               ),
             ),

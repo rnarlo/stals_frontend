@@ -17,9 +17,10 @@ class AccomCardDetails {
   String description;
   String image;
   double rating;
+  bool isSigned;
 
-  AccomCardDetails(
-      this.ID, this.name, this.description, this.image, this.rating);
+  AccomCardDetails(this.ID, this.name, this.description, this.image,
+      this.rating, this.isSigned);
 
   getName() {
     return name;

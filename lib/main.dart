@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:stals_frontend/screens/signin.dart';
 import 'package:stals_frontend/screens/signup.dart';
 import 'package:stals_frontend/screens/homepage.dart';
@@ -7,6 +8,9 @@ import 'package:stals_frontend/screens/accomm.dart';
 
 void main() {
   runApp(const MyApp());
+  // Make app full screen
+  // SystemChrome.setEnabledSystemUIMode(
+  //     SystemUiMode.immersiveSticky);
 }
 
 class MyApp extends StatelessWidget {

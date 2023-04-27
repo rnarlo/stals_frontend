@@ -40,7 +40,9 @@ class _AccomCardState extends State<AccomCard> {
       child: InkWell(
         onTap: () {
           // For now, redirect to sign up page.
-          Navigator.pushNamed(context, '/signup');
+          if (!widget.details.isSigned) {
+            Navigator.pushNamed(context, '/signup');
+          }
         },
         child: Row(
           children: [
