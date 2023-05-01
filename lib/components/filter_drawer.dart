@@ -12,7 +12,7 @@ class FilterDrawer extends StatefulWidget {
 
 class _FilterDrawerState extends State<FilterDrawer> {
   // variables that will hold the values of the filter that the user will choose
-  int? rating;
+  double? rating;
   String? establishmentType;
   String? tenantType;
   final locationTextController = TextEditingController();
@@ -133,7 +133,7 @@ class _FilterDrawerState extends State<FilterDrawer> {
                         switch (radioTitle) {
                           case "Rating":
                             {
-                              rating = newVal;
+                              rating = (newVal);
                             }
                             break;
                           case "Establishment Type":
@@ -219,8 +219,10 @@ class _FilterDrawerState extends State<FilterDrawer> {
                       fontSize: UIParameter.FONT_HEADING_SIZE),
                 ),
               ),
-              _buildTextBoxes(
-                  "Enter Location", 0.7, locationTextController, 'text'),
+              Center(
+                child: _buildTextBoxes(
+                    "Enter Location", 0.7, locationTextController, 'text'),
+              ),
               _customDivider(),
               const Padding(
                 padding: EdgeInsets.only(top: 20, left: 20),
