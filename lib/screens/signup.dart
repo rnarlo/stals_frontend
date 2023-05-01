@@ -46,20 +46,22 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              "You are\na/an",
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 70, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 75),
-            _buildButton("Owner"),
-            _buildButton("Customer"),
-            const SizedBox(height: 100),
-            backButton
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Text(
+                "You are\na/an",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 70, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 75),
+              _buildButton("Owner"),
+              _buildButton("Customer"),
+              const SizedBox(height: 100),
+              backButton
+            ],
+          ),
         ),
       ),
     );

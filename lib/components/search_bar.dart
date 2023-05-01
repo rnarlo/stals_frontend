@@ -22,8 +22,10 @@ class SearchBar extends StatelessWidget {
         ),
         child: TextField(
           onChanged: onChanged,
-          cursorColor: Colors.green,
-          style: const TextStyle(fontSize: UIParameter.FONT_BODY_SIZE),
+          cursorColor: UIParameter.LIGHT_TEAL,
+          style: const TextStyle(
+              fontSize: UIParameter.FONT_BODY_SIZE,
+              fontFamily: UIParameter.FONT_REGULAR),
           decoration: InputDecoration(
             isDense: true,
             hintText: hintText,

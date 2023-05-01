@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import '../classes.dart';
 
+import '../UI_parameters.dart' as UIParameter;
+
 // COMPONENTS
 import '../components/accom_card.dart';
 import '../components/search_bar.dart';
+import '../components/filter_drawer.dart';
 
 class RegisteredHomepage extends StatefulWidget {
   const RegisteredHomepage({Key? key}) : super(key: key);
@@ -14,6 +17,34 @@ class RegisteredHomepage extends StatefulWidget {
 
 class _RegisteredHomepageState extends State<RegisteredHomepage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  Filter accomFilter = Filter(null, null, null, null, null, null);
+
+  /*
+  a callback function that returns the filter(object) that the user chose
+  Filter(
+    rating;
+    location;
+    establishmentType;
+    tenantType;
+    minPrice; 
+    maxPrice;
+  )
+   */
+  void getFilter(Filter newFilter) {
+    // print filter object for debug
+    // print(
+    //     "${newFilter.getRating()}\n${newFilter.getLocation()}\n${newFilter.getTenantType()}\n${newFilter.getEstablishmentType()}\n${newFilter.getMinPrice()}\n${newFilter.getMaxPrice()}\n");
+    setState(() {
+      accomFilter = newFilter;
+    });
+  }
+
+  /*
+  TO-DO: GET LIST OF ACCOMMODATIONS FROM DATABASE AND FILTER ACCORDING TO `accomFilter`
+  initally, the homepage `accomFilter` will all be set to null, meaning all accomms will be displayed since all filter parameters are null
+  as user chooses his/her filter, `accomFilter` will be set to its new state according to the filter/s the user selected
+  the setstate should trigger the homepage to "reload" and display accomms that fit the new filter
+  */
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +65,13 @@ class _RegisteredHomepageState extends State<RegisteredHomepage> {
     return Scaffold(
         key: scaffoldKey,
         appBar: AppBar(
-            backgroundColor: Color(0xffF0F3F5),
+            backgroundColor: UIParameter.WHITE,
             elevation: 0,
             // hamburger icon for profile
             // opens left drawer on tap
             leading: IconButton(
-              icon: Icon(Icons.menu),
-              color: Color(0xff0B7A75),
+              icon: const Icon(Icons.menu),
+              color: UIParameter.LIGHT_TEAL,
               onPressed: () {
                 if (scaffoldKey.currentState!.isDrawerOpen) {
                   //scaffoldKey.currentState!.closeDrawer();
@@ -65,8 +96,8 @@ class _RegisteredHomepageState extends State<RegisteredHomepage> {
               Builder(
                 builder: (context) {
                   return IconButton(
-                    icon: Icon(Icons.filter_alt),
-                    color: Color(0xff7B2D26),
+                    icon: const Icon(Icons.filter_alt),
+                    color: UIParameter.MAROON,
                     onPressed: () {
                       Scaffold.of(context).openEndDrawer();
                     },
@@ -83,13 +114,13 @@ class _RegisteredHomepageState extends State<RegisteredHomepage> {
             // Important: Remove any padding from the ListView.
             padding: EdgeInsets.zero,
             children: [
-              const SizedBox(
+              SizedBox(
                 height: 100,
                 child: DrawerHeader(
                   decoration: BoxDecoration(
-                    color: Color(0xff0B7A75),
+                    color: UIParameter.LIGHT_TEAL,
                   ),
-                  child: Text('PROFILE'),
+                  child: const Text('PROFILE'),
                 ),
               ),
               ListTile(
@@ -110,47 +141,14 @@ class _RegisteredHomepageState extends State<RegisteredHomepage> {
           ),
         ),
         // the right drawer
-        endDrawer: Drawer(
-          // Add a ListView to the drawer. This ensures the user can scroll
-          // through the options in the drawer if there isn't enough vertical
-          // space to fit everything.
-          child: ListView(
-            // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.zero,
-            children: [
-              const SizedBox(
-                height: 100,
-                child: DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: Color(0xff7B2D26),
-                  ),
-                  child: Text('FILTER'),
-                ),
-              ),
-              ListTile(
-                title: const Text('Item 1'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
-              ),
-              ListTile(
-                title: const Text('Item 2'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
-              ),
-            ],
-          ),
-        ),
+        endDrawer: FilterDrawer(callback: getFilter),
         body: SingleChildScrollView(
           child: Container(
             // get the height and width of the device
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            padding: EdgeInsets.all(20),
-            color: Color(0xffF0F3F5),
+            padding: const EdgeInsets.all(20),
+            color: UIParameter.WHITE,
             child: Center(
               child: Column(
                 children: [

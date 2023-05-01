@@ -29,6 +29,11 @@ class MyApp extends StatelessWidget {
         '/signed_homepage': (context) => const RegisteredHomepage(),
         '/accomm': (context) => const AccommPage()
       },
+      theme: ThemeData(
+        fontFamily: 'SFProDisplayRegular',
+        //primarySwatch: MaterialColor(Color(0xff19535F), swatch),
+        //accentColor: Color(0xff0B7A75),
+      ),
     );
   }
 }

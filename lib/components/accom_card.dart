@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:stals_frontend/screens/signup.dart';
 import '../UI_parameters.dart' as UIParameter;
 import '../classes.dart';
 
@@ -11,6 +10,7 @@ class AccomCard extends StatefulWidget {
     - Accom description
     - Accom rating
   */
+
   const AccomCard({Key? key, required this.details}) : super(key: key);
   final AccomCardDetails details;
 
@@ -58,8 +58,8 @@ class _AccomCardState extends State<AccomCard> {
                     topLeft: Radius.circular(15),
                     bottomLeft: Radius.circular(15)),
                 child: FittedBox(
-                  child: Image.asset(widget.details.getImage()),
                   fit: BoxFit.fill,
+                  child: Image.asset(widget.details.getImage()),
                 ),
               ),
             ),
@@ -75,7 +75,7 @@ class _AccomCardState extends State<AccomCard> {
                       widget.details.getName(),
                       style: const TextStyle(
                           fontSize: UIParameter.FONT_HEADING_SIZE,
-                          fontFamily: 'SFProDisplayRegular',
+                          fontFamily: UIParameter.FONT_REGULAR,
                           // w600 is semibold
                           fontWeight: FontWeight.w600),
                     ),
@@ -87,7 +87,7 @@ class _AccomCardState extends State<AccomCard> {
                         widget.details.getDescription(),
                         style: const TextStyle(
                             fontSize: UIParameter.FONT_BODY_SIZE,
-                            fontFamily: 'SFProDisplayRegular'),
+                            fontFamily: UIParameter.FONT_REGULAR),
                       ),
                     ),
                     RatingBar.builder(

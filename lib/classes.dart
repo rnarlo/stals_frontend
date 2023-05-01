@@ -42,3 +42,38 @@ class AccomCardDetails {
     return rating;
   }
 }
+
+class Filter {
+  double? rating;
+  String? location;
+  String? establishmentType;
+  String? tenantType;
+  double? minPrice;
+  double? maxPrice;
+
+  Filter(this.rating, this.location, this.establishmentType, this.tenantType,
+      this.minPrice, this.maxPrice);
+  getRating() {
+    return rating;
+  }
+
+  getLocation() {
+    return location;
+  }
+
+  getEstablishmentType() {
+    return establishmentType;
+  }
+
+  getTenantType() {
+    return tenantType;
+  }
+
+  getMinPrice() {
+    return minPrice;
+  }
+
+  getMaxPrice() {
+    return maxPrice;
+  }
+}
