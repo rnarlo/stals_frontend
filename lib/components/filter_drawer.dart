@@ -74,10 +74,10 @@ class _FilterDrawerState extends State<FilterDrawer> {
         break;
     }
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          padding: const EdgeInsets.only(top: 20, left: 20),
+          padding: const EdgeInsets.symmetric(vertical: 20),
           child: Text(
             radioTitle,
             style: const TextStyle(
@@ -88,66 +88,84 @@ class _FilterDrawerState extends State<FilterDrawer> {
         Column(
           children: [
             for (int i = 0; i < choices.length; i++)
-              RadioListTile(
-                  title: radioTitle == 'Rating'
-                      ? Row(
-                          children: [
-                            Text(
-                              choices[i].toString(),
-                              style: const TextStyle(
-                                  fontFamily: UIParameter.FONT_REGULAR,
-                                  fontSize: UIParameter.FONT_BODY_SIZE),
-                            ),
-                            RatingBar.builder(
-                                minRating: 0,
-                                maxRating: 5,
-                                initialRating: choices[i],
-                                direction: Axis.horizontal,
-                                allowHalfRating: false,
+              Column(
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: RadioListTile(
+                        activeColor: UIParameter.LIGHT_TEAL,
+                        title: radioTitle == 'Rating'
+                            ? Row(
+                                children: [
+                                  Text(
+                                    choices[i].toString(),
+                                    style: const TextStyle(
+                                        fontFamily: UIParameter.FONT_REGULAR,
+                                        fontSize: UIParameter.FONT_BODY_SIZE),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  RatingBar.builder(
+                                      minRating: 0,
+                                      maxRating: 5,
+                                      initialRating: choices[i],
+                                      direction: Axis.horizontal,
+                                      allowHalfRating: false,
 
-                                // ignore gestures to make rating un-editable
-                                ignoreGestures: true,
-                                onRatingUpdate: (rating) {
-                                  /* CANNOT RATE HERE */
-                                },
-                                itemSize: 18,
-                                itemBuilder:
-                                    (BuildContext context, int index) =>
-                                        const Icon(
-                                          Icons.star,
-                                          color: Colors.amber,
-                                        ))
-                          ],
-                        )
-                      : Text(
-                          choices[i].toString(),
-                          style: const TextStyle(
-                              fontFamily: UIParameter.FONT_REGULAR,
-                              fontSize: UIParameter.FONT_BODY_SIZE),
-                        ),
-                  // so the user can choose to select one or select none
-                  toggleable: true,
-                  value: choices[i],
-                  groupValue: groupVal,
-                  onChanged: (newVal) => setState(() {
-                        switch (radioTitle) {
-                          case "Rating":
-                            {
-                              rating = (newVal);
-                            }
-                            break;
-                          case "Establishment Type":
-                            {
-                              establishmentType = newVal;
-                            }
-                            break;
-                          case "Tenant Type":
-                            {
-                              tenantType = newVal;
-                            }
-                            break;
-                        }
-                      }))
+                                      // ignore gestures to make rating un-editable
+                                      ignoreGestures: true,
+                                      onRatingUpdate: (rating) {
+                                        /* CANNOT RATE HERE */
+                                      },
+                                      itemSize: 18,
+                                      itemBuilder:
+                                          (BuildContext context, int index) =>
+                                              const Icon(
+                                                Icons.star,
+                                                color: Colors.amber,
+                                              ))
+                                ],
+                              )
+                            : Text(
+                                choices[i].toString(),
+                                style: const TextStyle(
+                                    fontFamily: UIParameter.FONT_REGULAR,
+                                    fontSize: UIParameter.FONT_BODY_SIZE),
+                              ),
+                        // so the user can choose to select one or select none
+                        toggleable: true,
+                        value: choices[i],
+                        groupValue: groupVal,
+                        onChanged: (newVal) => setState(() {
+                              switch (radioTitle) {
+                                case "Rating":
+                                  {
+                                    rating = (newVal);
+                                  }
+                                  break;
+                                case "Establishment Type":
+                                  {
+                                    establishmentType = newVal;
+                                  }
+                                  break;
+                                case "Tenant Type":
+                                  {
+                                    tenantType = newVal;
+                                  }
+                                  break;
+                              }
+                            })),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  )
+                ],
+              ),
           ],
         )
       ],
@@ -192,7 +210,7 @@ class _FilterDrawerState extends State<FilterDrawer> {
         backgroundColor: UIParameter.WHITE,
         child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
                   height: 100,
@@ -211,7 +229,7 @@ class _FilterDrawerState extends State<FilterDrawer> {
                     ],
                   )),
               const Padding(
-                padding: EdgeInsets.only(top: 20, left: 20),
+                padding: EdgeInsets.only(top: 20),
                 child: Text(
                   "Location",
                   style: TextStyle(
@@ -225,7 +243,7 @@ class _FilterDrawerState extends State<FilterDrawer> {
               ),
               _customDivider(),
               const Padding(
-                padding: EdgeInsets.only(top: 20, left: 20),
+                padding: EdgeInsets.only(top: 20),
                 child: Text(
                   "Price Range",
                   style: TextStyle(
@@ -296,6 +314,12 @@ class _FilterDrawerState extends State<FilterDrawer> {
                           widget.callback(newFilter);
                           Scaffold.of(context).closeEndDrawer();
                         },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: UIParameter.LIGHT_TEAL,
+                          textStyle: const TextStyle(
+                              fontSize: UIParameter.FONT_BODY_SIZE,
+                              fontFamily: UIParameter.FONT_REGULAR),
+                        ),
                         child: const Text('Apply'))
                   ],
                 ),
