@@ -4,20 +4,38 @@ import '../UI_parameters.dart' as UIParameter;
 import '../classes.dart';
 
 class FilterDrawer extends StatefulWidget {
-  const FilterDrawer({super.key, required this.callback});
+  const FilterDrawer({super.key, required this.filter, required this.callback});
   final Function(Filter) callback;
+  final Filter filter;
   @override
   State<FilterDrawer> createState() => _FilterDrawerState();
 }
 
 class _FilterDrawerState extends State<FilterDrawer> {
   // variables that will hold the values of the filter that the user will choose
+
   double? rating;
   String? establishmentType;
   String? tenantType;
   final locationTextController = TextEditingController();
   final minPriceTextController = TextEditingController();
   final maxPriceTextController = TextEditingController();
+
+  @override
+  void initState() {
+    rating = widget.filter.getRating();
+    establishmentType = widget.filter.getEstablishmentType();
+    tenantType = widget.filter.getTenantType();
+    if (widget.filter.getLocation() != null) {
+      locationTextController.text = widget.filter.getLocation();
+    }
+    if (widget.filter.getMinPrice() != null) {
+      minPriceTextController.text = widget.filter.getMinPrice().toString();
+    }
+    if (widget.filter.getMaxPrice() != null) {
+      maxPriceTextController.text = widget.filter.getMaxPrice().toString();
+    }
+  }
 
   // List of choices for rating, tenant types, and establishment types
   List<double> ratingChoices = [1, 2, 3, 4, 5];
@@ -174,7 +192,7 @@ class _FilterDrawerState extends State<FilterDrawer> {
 
   // builds the textboxes for location, min price, and max price
   Widget _buildTextBoxes(String displayText, double widthMultiplier,
-      TextEditingController contoller, String input_type) {
+      TextEditingController controller, String input_type) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: Container(
@@ -185,7 +203,7 @@ class _FilterDrawerState extends State<FilterDrawer> {
           borderRadius: BorderRadius.circular(15),
         ),
         child: TextField(
-          controller: contoller,
+          controller: controller,
           keyboardType: input_type == 'number'
               ? TextInputType.number
               : TextInputType.text,
@@ -254,10 +272,32 @@ class _FilterDrawerState extends State<FilterDrawer> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  _buildTextBoxes(
-                      "Min Price", 0.3, minPriceTextController, 'number'),
-                  _buildTextBoxes(
-                      "Max Price", 0.3, maxPriceTextController, 'number'),
+                  Row(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(right: 3),
+                        child: const Text("PHP",
+                            style: TextStyle(
+                                fontFamily: UIParameter.FONT_REGULAR,
+                                fontSize: UIParameter.FONT_BODY_SIZE)),
+                      ),
+                      _buildTextBoxes(
+                          "Min Price", 0.25, minPriceTextController, 'number'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(right: 3),
+                        child: const Text("PHP",
+                            style: TextStyle(
+                                fontFamily: UIParameter.FONT_REGULAR,
+                                fontSize: UIParameter.FONT_BODY_SIZE)),
+                      ),
+                      _buildTextBoxes(
+                          "Max Price", 0.25, maxPriceTextController, 'number'),
+                    ],
+                  ),
                 ],
               ),
               _customDivider(),
