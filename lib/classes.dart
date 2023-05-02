@@ -53,6 +53,28 @@ class Filter {
 
   Filter(this.rating, this.location, this.establishmentType, this.tenantType,
       this.minPrice, this.maxPrice);
+
+  isEmpty() {
+    if (rating == null &&
+        location == null &&
+        establishmentType == null &&
+        tenantType == null &&
+        minPrice == null &&
+        maxPrice == null) return true;
+    return false;
+  }
+
+  getFiltersApplied() {
+    return [
+      [rating, "Rating"],
+      [location, "Location"],
+      [establishmentType, "Establishment Type"],
+      [tenantType, "Tenant Type"],
+      [minPrice, "Min Price"],
+      [maxPrice, "Max Price"]
+    ];
+  }
+
   getRating() {
     return rating;
   }
