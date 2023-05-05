@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:stals_frontend/screens/admin_dashboard.dart';
 import 'package:stals_frontend/screens/signin.dart';
 import 'package:stals_frontend/screens/signup.dart';
 import 'package:stals_frontend/screens/homepage.dart';
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
         '/signup': (context) => const SignUpPage(),
         '/homepage': (context) => const UnregisteredHomepage(),
         '/signed_homepage': (context) => const RegisteredHomepage(),
-        '/accomm': (context) => const AccommPage()
+        '/accomm': (context) => const AccommPage(),
+        '/admin': (context) => const AdminDashBoard()
       },
       theme: ThemeData(
         fontFamily: 'SFProDisplayRegular',
