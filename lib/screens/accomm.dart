@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:stals_frontend/components/rating.dart';
 import 'package:flutter/material.dart';
 
@@ -12,17 +10,25 @@ class AccommPage extends StatefulWidget {
 class _AccommPageState extends State<AccommPage> {
   double rating = 4.0;
   int _index = 1;
+  bool favorite = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         //App bar start
         appBar: AppBar(
-          title: const Text("All Accomodations"),
-          actions: <Widget>[
-            IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back_ios))
-          ],
-          backgroundColor: Colors.black26,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            color: Colors.black,
+          ),
+          title: const Text(
+            "All Accommodations",
+            style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.white,
         ),
         //end of Appbar
 
@@ -52,12 +58,36 @@ class _AccommPageState extends State<AccommPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Expanded(
-                  //Image File
-                  child: Image.asset(
-                    'assets/images/room_stock.jpg',
-                  ),
-                ),
+                Stack(
+                  alignment: Alignment.topRight,
+                  children: [
+                    Container(
+                      height: 280,
+                      width: MediaQuery.of(context).size.width,
+                      child: Image.asset(
+                        'assets/images/room_stock.jpg',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            favorite = !favorite;
+                            // add function to add accommodation to favorites
+                          });
+                        },
+                        child: (favorite)
+                            ? Icon(
+                                Icons.bookmark_outline,
+                                size: 20,
+                              )
+                            : Icon(Icons.bookmark, size: 20),
+                        style: ElevatedButton.styleFrom(
+                            shape: const CircleBorder(),
+                            backgroundColor: Colors.white,
+                            foregroundColor: Color.fromARGB(255, 25, 83, 95))),
+                  ],
+                )
               ],
             ),
             const SizedBox(
@@ -106,7 +136,7 @@ class _AccommPageState extends State<AccommPage> {
             const Divider(
               color: Colors.black,
             ),
-            const Column(
+            Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -199,6 +229,7 @@ class _AccommPageState extends State<AccommPage> {
             //CARD for ROOM Capacity/Type/Price
             //On-going
             //can't scroll for some reason
+<<<<<<< HEAD
             //Cards
             // SizedBox(
             //     height: 50,
@@ -236,6 +267,41 @@ class _AccommPageState extends State<AccommPage> {
             //           );
             //         })),
             //end of cards
+=======
+            SizedBox(
+                height: 100,
+                width: MediaQuery.of(context).size.width,
+                child: PageView.builder(
+                    itemCount: 5,
+                    pageSnapping: true,
+                    itemBuilder: (context, pagePosition) {
+                      return Scaffold(
+                        body: Center(
+                            child: SizedBox(
+                          height: 50,
+                          child: PageView.builder(
+                            itemCount: 5,
+                            controller: PageController(viewportFraction: 0.7),
+                            onPageChanged: (int index) =>
+                                setState(() => _index = index),
+                            itemBuilder: (_, i) {
+                              return Transform.scale(
+                                scale: i == _index ? 1 : 0.9,
+                                child: Card(
+                                  elevation: 6,
+                                  child: Center(
+                                      child: Text(
+                                    "Card ${i + 1}",
+                                    style: const TextStyle(fontSize: 20),
+                                  )),
+                                ),
+                              );
+                            },
+                          ),
+                        )),
+                      );
+                    })),
+>>>>>>> 7acdb227f947ddf499c7922922865e07f8e6db22
 
             const SizedBox(
               height: 5,
