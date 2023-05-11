@@ -188,58 +188,252 @@ class _AccommPageState extends State<AccommPage> {
               ],
             ),
 
-            const SizedBox(
-              height: 10,
-            ),
-            const Divider(
-              color: Colors.black,
-            ),
+            //end of contact info
+            // const SizedBox(
+            //   height: 5,
+            // ),
+            // const Divider(
+            //   color: Colors.black,
+            // ),
 
             //CARD for ROOM Capacity/Type/Price
             //On-going
             //can't scroll for some reason
-            SizedBox(
-                height: 100,
-                width: MediaQuery.of(context).size.width,
-                child: PageView.builder(
-                    itemCount: 5,
-                    pageSnapping: true,
-                    itemBuilder: (context, pagePosition) {
-                      return Scaffold(
-                        body: Center(
-                            child: SizedBox(
-                          height: 50,
-                          child: PageView.builder(
-                            itemCount: 5,
-                            controller: PageController(viewportFraction: 0.7),
-                            onPageChanged: (int index) =>
-                                setState(() => _index = index),
-                            itemBuilder: (_, i) {
-                              return Transform.scale(
-                                scale: i == _index ? 1 : 0.9,
-                                child: Card(
-                                  elevation: 6,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20)),
-                                  child: Center(
-                                      child: Text(
-                                    "Card ${i + 1}",
-                                    style: const TextStyle(fontSize: 32),
-                                  )),
-                                ),
-                              );
-                            },
-                          ),
-                        )),
-                      );
-                    })),
+            //Cards
+            // SizedBox(
+            //     height: 50,
+            //     width: MediaQuery.of(context).size.width,
+            //     child: PageView.builder(
+            //         itemCount: 5,
+            //         pageSnapping: true,
+            //         itemBuilder: (context, pagePosition) {
+            //           return Scaffold(
+            //             body: Center(
+            //                 child: SizedBox(
+            //               height: 50,
+            //               child: PageView.builder(
+            //                 itemCount: 5,
+            //                 controller: PageController(viewportFraction: 0.7),
+            //                 onPageChanged: (int index) =>
+            //                     setState(() => _index = index),
+            //                 itemBuilder: (_, i) {
+            //                   return Transform.scale(
+            //                     scale: i == _index ? 1 : 0.9,
+            //                     child: Card(
+            //                       elevation: 6,
+            //                       shape: RoundedRectangleBorder(
+            //                           borderRadius: BorderRadius.circular(20)),
+            //                       child: Center(
+            //                           child: Text(
+            //                         "Card ${i + 1}",
+            //                         style: const TextStyle(fontSize: 32),
+            //                       )),
+            //                     ),
+            //                   );
+            //                 },
+            //               ),
+            //             )),
+            //           );
+            //         })),
+            //end of cards
 
             const SizedBox(
-              height: 10,
+              height: 5,
             ),
             const Divider(
               color: Colors.black,
             ),
+
+            //need to fix tab or text align
+            //or is it just cuz im not using android emulator
+
+            //Description
+            // const Row(
+            //     mainAxisAlignment: MainAxisAlignment.start,
+            //     crossAxisAlignment: CrossAxisAlignment.center,
+            //     children: [
+            //       SizedBox(
+            //         height: 4,
+            //         width: 25,
+            //       ),
+            //       Expanded(
+            //           child: Column(
+            //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //         //crossAxisAlignment: CrossAxisAlignment.center,
+            //         children: [
+            //           FittedBox(
+            //             alignment: Alignment.topLeft,
+            //             child: Text(
+            //               "About [Name]",
+            //               maxLines: 1,
+            //               style: TextStyle(
+            //                   fontSize: 18, fontWeight: FontWeight.normal),
+            //               textAlign: TextAlign.start,
+            //             ),
+            //           ),
+            //           SizedBox(
+            //             height: 2,
+            //             width: 5,
+            //           ),
+            //           FittedBox(
+            //               fit: BoxFit.contain,
+            //               child: Text(
+            //                 "About Descriptaasdasdasdasdasaasdasdaaaaaasddddddddddddddddddddddddddddddaaaaaaaasdasdasdasdaaa",
+            //                 maxLines: 1,
+            //                 style: TextStyle(
+            //                     fontSize: 12, fontWeight: FontWeight.normal),
+            //               )),
+            //         ],
+            //       ))
+            //     ]),
+            //end of Description
+            const SizedBox(
+              height: 5,
+            ),
+            const Divider(
+              color: Colors.black,
+            ),
+
+            //Highlights
+            const Column(
+              children: [
+                FittedBox(
+                  fit: BoxFit.fill,
+                  child: Text(
+                    "Highlights",
+                    style:
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
+                  ),
+                ),
+                Expanded(
+                    child: Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Icon(
+                      Icons.pets,
+                      color: Colors.blue,
+                      size: 40,
+                    ),
+                    FittedBox(
+                      fit: BoxFit.fill,
+                      child: Text(
+                        "Pets Allowed",
+                        style: TextStyle(
+                            fontSize: 13, fontWeight: FontWeight.normal),
+                      ),
+                    ),
+                  ],
+                )),
+                Expanded(
+                    child: Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Icon(
+                      Icons.bathtub_outlined,
+                      color: Colors.blue,
+                      size: 40,
+                    ),
+                    FittedBox(
+                      fit: BoxFit.fill,
+                      child: Text(
+                        "Own Bathroom",
+                        style: TextStyle(
+                            fontSize: 13, fontWeight: FontWeight.normal),
+                      ),
+                    ),
+                  ],
+                )),
+                Expanded(
+                    child: Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Icon(
+                      Icons.restaurant_menu,
+                      color: Colors.blue,
+                      size: 40,
+                    ),
+                    FittedBox(
+                      fit: BoxFit.fill,
+                      child: Text(
+                        "Cooking Allowed",
+                        style: TextStyle(
+                            fontSize: 13, fontWeight: FontWeight.normal),
+                      ),
+                    ),
+                  ],
+                )),
+                Expanded(
+                    child: Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Icon(
+                      Icons.wifi,
+                      color: Colors.blue,
+                      size: 40,
+                    ),
+                    FittedBox(
+                      fit: BoxFit.fill,
+                      child: Text(
+                        "With Internet Connection",
+                        style: TextStyle(
+                            fontSize: 13, fontWeight: FontWeight.normal),
+                      ),
+                    ),
+                  ],
+                )),
+                Expanded(
+                    child: Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Icon(
+                      Icons.ac_unit,
+                      color: Colors.blue,
+                      size: 40,
+                    ),
+                    FittedBox(
+                      fit: BoxFit.fill,
+                      child: Text(
+                        "Air-conditioned room",
+                        style: TextStyle(
+                            fontSize: 13, fontWeight: FontWeight.normal),
+                      ),
+                    ),
+                  ],
+                )),
+                Expanded(
+                    child: Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Icon(
+                      Icons.bedtime_off,
+                      color: Colors.blue,
+                      size: 40,
+                    ),
+                    FittedBox(
+                      fit: BoxFit.fill,
+                      child: Text(
+                        "No Curfew",
+                        style: TextStyle(
+                            fontSize: 13, fontWeight: FontWeight.normal),
+                      ),
+                    ),
+                  ],
+                )),
+              ],
+            )
+            //end of highlights
           ]),
         ));
   }
@@ -249,6 +443,16 @@ class _AccommPageState extends State<AccommPage> {
 
 /*
 
+Flexible(
+                          child: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: Text(
+                                "About Descriptaasdasdasdasdasaaaaaa",
+                                maxLines: 1,
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.normal),
+                              ))),
 
 
         class AcomCarousel extends _AccommPageState {
