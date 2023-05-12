@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:stals_frontend/screens/admin_dashboard.dart';
+import 'package:stals_frontend/screens/admin_view_users.dart';
 import 'package:stals_frontend/screens/signin.dart';
 import 'package:stals_frontend/screens/signup.dart';
 import 'package:stals_frontend/screens/homepage.dart';
 import 'package:stals_frontend/screens/homepage_signed.dart';
 import 'package:stals_frontend/screens/accomm.dart';
+import 'package:stals_frontend/screens/view_manage_accomms.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +31,9 @@ class MyApp extends StatelessWidget {
         '/homepage': (context) => const UnregisteredHomepage(),
         '/signed_homepage': (context) => const RegisteredHomepage(),
         '/accomm': (context) => const AccommPage(),
-        '/admin': (context) => const AdminDashBoard()
+        '/admin': (context) => const AdminDashBoard(),
+        '/view_owned_accomms': (context) => const ViewOwnedAccomms(),
+        '/admin/view_users': (context) => const ViewUsersPage(),
       },
       theme: ThemeData(
         fontFamily: 'SFProDisplayRegular',
@@ -86,6 +90,27 @@ class _MyHomePageState extends State<MyHomePage> {
           trailing: const Icon(Icons.construction),
           onTap: () {
             Navigator.pushNamed(context, '/accomm');
+          },
+        ),
+        ListTile(
+          title: const Text('Admin Dashboard'),
+          trailing: const Icon(Icons.construction),
+          onTap: () {
+            Navigator.pushNamed(context, '/admin');
+          },
+        ),
+        ListTile(
+          title: const Text('View Owned Accommodations'),
+          trailing: const Icon(Icons.construction),
+          onTap: () {
+            Navigator.pushNamed(context, '/view_owned_accomms');
+          },
+        ),
+        ListTile(
+          title: const Text('Admin View Users Page'),
+          trailing: const Icon(Icons.construction),
+          onTap: () {
+            Navigator.pushNamed(context, '/admin/view_users');
           },
         ),
         ListTile(

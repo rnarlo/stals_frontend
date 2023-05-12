@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/cherry/Documents/proj128/stals_frontend/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-ru/values-ru.xml",
+            "outputFile": "/Users/chr1s/Desktop/stals_frontend/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-ru/values-ru.xml",
             "map": [
                 {
-                    "source": "/Users/cherry/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/res/values-ru/values-ru.xml",
+                    "source": "/Users/chr1s/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/res/values-ru/values-ru.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
