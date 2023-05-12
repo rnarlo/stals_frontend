@@ -63,7 +63,11 @@ flutter:
   assets:
      - assets/images/room_stock.jpg
      - assets/images/stals_logo2.png
-  #   - images/a_dot_ham.jpeg
+     - assets/images/apartment.png
+     - assets/images/bed.png
+     - assets/images/bunk.png
+     - assets/images/home.png
+     - assets/images/hotel.png
 
   fonts:
       - family: SFProDisplayRegular
