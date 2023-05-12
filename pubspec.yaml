@@ -62,6 +62,7 @@ flutter:
 
   assets:
      - assets/images/room_stock.jpg
+     - assets/images/stals_logo2.png
   #   - images/a_dot_ham.jpeg
 
   fonts:
