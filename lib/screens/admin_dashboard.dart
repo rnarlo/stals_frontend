@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../UI_parameters.dart' as UIParameter;
-import '../components/search_bar.dart';
 
 class AdminDashBoard extends StatefulWidget {
   const AdminDashBoard({super.key});
@@ -48,35 +47,41 @@ class _AdminDashBoardState extends State<AdminDashBoard> {
           ]),
       drawer: Drawer(
           child: ListView(padding: EdgeInsets.zero, children: [
-        SizedBox(
-          height: 64,
-          child: DrawerHeader(
-              decoration: BoxDecoration(color: UIParameter.DARK_TEAL),
-              child: Text(
-                "Admin",
-                style: TextStyle(
-                    fontSize: UIParameter.FONT_HEADING_SIZE,
-                    color: UIParameter.WHITE),
-              )),
+        ListTile(
+          title: const Text('Home'),
+          leading: const Icon(Icons.home),
+          onTap: () {
+            Navigator.pushNamed(context, '/admin/view_users');
+          },
         ),
         ListTile(
-            title: const Text('Admin 1'),
-            onTap: () {
-              // TODO
-            },
-            tileColor: UIParameter.LIGHT_TEAL),
+          title: const Text('Users'),
+          leading: const Icon(Icons.account_box),
+          onTap: () {
+            // TODO
+          },
+        ),
         ListTile(
-            title: const Text('Admin 2'),
-            onTap: () {
-              // TODO
-            },
-            tileColor: UIParameter.LIGHT_TEAL),
+          title: const Text('Accommodations'),
+          leading: const Icon(Icons.apartment),
+          onTap: () {
+            // TODO
+          },
+        ),
         ListTile(
-            title: const Text('Admin 3'),
-            onTap: () {
-              // TODO
-            },
-            tileColor: UIParameter.LIGHT_TEAL)
+          title: const Text('Reviews'),
+          leading: const Icon(Icons.reviews),
+          onTap: () {
+            // TODO
+          },
+        ),
+        ListTile(
+          title: const Text('Logout'),
+          leading: const Icon(Icons.logout),
+          onTap: () {
+            // TODO
+          },
+        ),
       ])),
       body: SingleChildScrollView(
           child: Container(
@@ -85,18 +90,35 @@ class _AdminDashBoardState extends State<AdminDashBoard> {
               padding: const EdgeInsets.all(20),
               color: UIParameter.WHITE,
               child: Center(
-                  child: Column(children: const [
-                StatCard(
+                  child: Column(children: [
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: RichText(
+                      text: const TextSpan(
+                          text: 'Hello, ',
+                          style: TextStyle(
+                            fontSize: 36,
+                            color: Colors.black,
+                          ),
+                          children: <TextSpan>[
+                        TextSpan(
+                            text: 'Admin',
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        TextSpan(text: "!"),
+                      ])),
+                ),
+                const SizedBox(height: 20),
+                const StatCard(
                     title: "Registered Users",
                     icon: Icons.person_outline_sharp,
                     value: 75),
-                SizedBox(height: 10),
-                StatCard(
+                const SizedBox(height: 10),
+                const StatCard(
                     title: "App Visits (Day)", icon: Icons.bar_chart, value: 7),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                StatCard(
+                const StatCard(
                   title: "App Visits (Week)",
                   icon: Icons.bar_chart,
                   value: 75,
