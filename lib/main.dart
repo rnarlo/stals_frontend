@@ -10,6 +10,7 @@ import 'package:stals_frontend/screens/homepage_signed.dart';
 import 'package:stals_frontend/screens/accomm.dart';
 import 'package:stals_frontend/screens/view_manage_accomms.dart';
 import 'package:stals_frontend/screens/admin_view_pending_approved.dart';
+import 'package:stals_frontend/screens/add_accomm.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,12 +39,14 @@ class MyApp extends StatelessWidget {
         '/admin/view_users': (context) => const ViewUsersPage(),
         '/admin/view_accommodations': (context) =>
             const AdminViewAccommodations(),
+        '/add_accomm': (context) => const AddAccommPage(),
       },
       theme: ThemeData(
         fontFamily: 'SFProDisplayRegular',
         //primarySwatch: MaterialColor(Color(0xff19535F), swatch),
         //accentColor: Color(0xff0B7A75),
       ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -122,6 +125,13 @@ class _MyHomePageState extends State<MyHomePage> {
           trailing: const Icon(Icons.construction),
           onTap: () {
             Navigator.pushNamed(context, '/admin/view_accommodations');
+          },
+        ),
+        ListTile(
+          title: const Text('Add Accommodation'),
+          trailing: const Icon(Icons.add),
+          onTap: () {
+            Navigator.pushNamed(context, '/add_accomm');
           },
         ),
         ListTile(
