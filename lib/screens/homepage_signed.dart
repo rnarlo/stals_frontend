@@ -4,7 +4,7 @@ import '../UI_parameters.dart' as UIParameter;
 
 // COMPONENTS
 import '../components/accom_card.dart';
-import '../components/search_bar.dart';
+// import '../components/search_bar.dart';
 import '../components/filter_drawer.dart';
 
 class RegisteredHomepage extends StatefulWidget {
