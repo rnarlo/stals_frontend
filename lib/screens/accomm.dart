@@ -36,6 +36,8 @@ bool isRef = ?
 
 
 */
+
+//data information:
 class Item1 extends StatelessWidget {
   const Item1({Key? key}) : super(key: key);
   @override
@@ -57,16 +59,31 @@ class Item1 extends StatelessWidget {
       child: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text("Data",
+          Icon(
+            Icons.single_bed_outlined,
+            color: Color.fromARGB(255, 255, 255, 255),
+            size: 75,
+          ),
+          Text("1 Bedroom",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 22.0,
                   fontWeight: FontWeight.bold)),
-          Text("Data",
+          Text("Max Capacity : 4",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 17.0,
                   fontWeight: FontWeight.w600)),
+          Text("Price: Php69,420",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17.0,
+                  fontWeight: FontWeight.w600)),
+          Text("Available : Yes",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17.0,
+                  fontWeight: FontWeight.w600))
         ],
       ),
     );
@@ -88,16 +105,31 @@ class Item2 extends StatelessWidget {
       child: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text("Data",
+          Icon(
+            Icons.king_bed_outlined,
+            color: Colors.white,
+            size: 75,
+          ),
+          Text("2 Bedroom",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 22.0,
                   fontWeight: FontWeight.bold)),
-          Text("Data",
+          Text("Max Capacity : 6",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 17.0,
                   fontWeight: FontWeight.w600)),
+          Text("Price: Php69,420",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17.0,
+                  fontWeight: FontWeight.w600)),
+          Text("Available : No",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17.0,
+                  fontWeight: FontWeight.w600))
         ],
       ),
     );
@@ -144,12 +176,22 @@ class Item4 extends StatelessWidget {
       child: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text("Data",
+          Text("Hanse",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 22.0,
                   fontWeight: FontWeight.bold)),
-          Text("Data",
+          Text("Papasok kaba",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17.0,
+                  fontWeight: FontWeight.w600)),
+          Text("Syempre hindi",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.bold)),
+          Text("Tara kain nalang",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 17.0,
@@ -188,7 +230,7 @@ class _AccommPageState extends State<AccommPage> {
             color: Colors.black,
           ),
           title: const Text(
-            "All Accommodations",
+            "Return to Homepage",
             style: TextStyle(color: Colors.black),
           ),
           backgroundColor: Colors.white,
@@ -391,53 +433,16 @@ class _AccommPageState extends State<AccommPage> {
                   ),
 
                   //Cards information
-                  // SizedBox(
-                  //     height: 50,
-                  //     width: MediaQuery.of(context).size.width,
-                  //     child: PageView.builder(
-                  //         itemCount: 5,
-                  //         pageSnapping: true,
-                  //         itemBuilder: (context, pagePosition) {
-                  //           return Scaffold(
-                  //             body: Center(
-                  //                 child: SizedBox(
-                  //               height: 50,
-                  //               child: PageView.builder(
-                  //                 itemCount: 5,
-                  //                 controller:
-                  //                     PageController(viewportFraction: 0.7),
-                  //                 onPageChanged: (int index) =>
-                  //                     setState(() => _index = index),
-                  //                 itemBuilder: (_, i) {
-                  //                   return Transform.scale(
-                  //                     scale: i == _index ? 1 : 0.9,
-                  //                     child: Card(
-                  //                       elevation: 6,
-                  //                       shape: RoundedRectangleBorder(
-                  //                           borderRadius:
-                  //                               BorderRadius.circular(20)),
-                  //                       child: Center(
-                  //                           child: Text(
-                  //                         "Card ${i + 1}",
-                  //                         style: const TextStyle(fontSize: 32),
-                  //                       )),
-                  //                     ),
-                  //                   );
-                  //                 },
-                  //               ),
-                  //             )),
-                  //           );
-                  //         })),
-
+                  //Alternative Cards
                   Column(
                     children: [
                       CarouselSlider(
                         options: CarouselOptions(
                           height: 200.0,
                           autoPlay: true,
-                          autoPlayInterval: const Duration(seconds: 3),
+                          autoPlayInterval: const Duration(seconds: 5),
                           autoPlayAnimationDuration:
-                              const Duration(milliseconds: 800),
+                              const Duration(milliseconds: 1000),
                           autoPlayCurve: Curves.fastOutSlowIn,
                           pauseAutoPlayOnTouch: true,
                           aspectRatio: 2.0,
@@ -868,3 +873,42 @@ class _AccommPageState extends State<AccommPage> {
         ));
   }
 }
+
+
+                  // SizedBox(
+                  //     height: 50,
+                  //     width: MediaQuery.of(context).size.width,
+                  //     child: PageView.builder(
+                  //         itemCount: 5,
+                  //         pageSnapping: true,
+                  //         itemBuilder: (context, pagePosition) {
+                  //           return Scaffold(
+                  //             body: Center(
+                  //                 child: SizedBox(
+                  //               height: 50,
+                  //               child: PageView.builder(
+                  //                 itemCount: 5,
+                  //                 controller:
+                  //                     PageController(viewportFraction: 0.7),
+                  //                 onPageChanged: (int index) =>
+                  //                     setState(() => _index = index),
+                  //                 itemBuilder: (_, i) {
+                  //                   return Transform.scale(
+                  //                     scale: i == _index ? 1 : 0.9,
+                  //                     child: Card(
+                  //                       elevation: 6,
+                  //                       shape: RoundedRectangleBorder(
+                  //                           borderRadius:
+                  //                               BorderRadius.circular(20)),
+                  //                       child: Center(
+                  //                           child: Text(
+                  //                         "Card ${i + 1}",
+                  //                         style: const TextStyle(fontSize: 32),
+                  //                       )),
+                  //                     ),
+                  //                   );
+                  //                 },
+                  //               ),
+                  //             )),
+                  //           );
+                  //         })),
