@@ -191,7 +191,7 @@ class Item4 extends StatelessWidget {
                   color: Colors.white,
                   fontSize: 22.0,
                   fontWeight: FontWeight.bold)),
-          Text("Tara kain nalang",
+          Text("Tara kain",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 17.0,
